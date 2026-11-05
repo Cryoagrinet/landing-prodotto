@@ -1,0 +1,26 @@
+# Vercel (configurazione locale della CLI)
+.vercel/
+
+# Variabili d'ambiente e segreti
+.env
+.env.*
+!.env.example
+
+# Dipendenze (se in futuro si aggiunge un tool di build)
+node_modules/
+
+# Log
+*.log
+npm-debug.log*
+
+# File di sistema
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Temporanei
+*.tmp
