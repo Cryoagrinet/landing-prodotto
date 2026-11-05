@@ -15,4 +15,4 @@
 
 ## Contenuti
 - Lingua principale italiano, con riga in inglese.
-- Il footer deve riportare ragione sociale, P.IVA e sede legale reali (obbligo di legge in Italia).
+- Il footer riporta ragione sociale e P.IVA: Cryoagrinet Società Agricola S.R.L. · P.IVA 04617550712.

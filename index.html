@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CryoAgriNet – Stiamo germogliando</title>
+<meta name="description" content="CryoAgriNet: una rete di aziende agricole italiane tra Puglia, Marche e Sicilia. Il nostro sito sta crescendo: torna a trovarci presto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:'Outfit',system-ui,sans-serif;color:#1F3A28;background:#F1F4EC}
+a{color:#2F5A1F}a:hover{color:#1F3A28}
+
+.page{min-height:100vh;display:flex;flex-direction:column;padding:clamp(24px,5vw,64px)}
+.header{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.logo{font-size:20px;font-weight:600;letter-spacing:.02em}
+.tag{font-size:14px;color:#4A5E4F}
+.header-right{display:flex;align-items:center;gap:16px}
+.lang{display:flex;align-items:center;font-size:13px;color:#8A9A8C}
+.lang button{font:inherit;color:#4A5E4F;background:none;border:0;padding:6px 4px;cursor:pointer;letter-spacing:.04em}
+.lang button:hover{color:#1F3A28}
+.lang button[aria-pressed="true"]{color:#1F3A28;font-weight:600}
+.lang button:focus-visible{outline:2px solid #2F5A1F;outline-offset:2px;border-radius:4px}
+.main{flex:1;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(32px,6vw,96px);padding:48px 0}
+.text{flex:1 1 420px;max-width:560px;display:flex;flex-direction:column;gap:24px}
+h1{margin:0;font-size:clamp(44px,7vw,84px);font-weight:500;line-height:1.02;letter-spacing:-.02em}
+.lead{margin:0;font-size:clamp(17px,1.6vw,20px);line-height:1.55;color:#33493A;font-weight:300}
+.cta{align-self:flex-start;display:inline-flex;align-items:center;min-height:48px;padding:0 24px;border-radius:999px;background:#1F3A28;color:#F1F4EC;text-decoration:none;font-size:16px;font-weight:500}
+.cta:hover{background:#2F5A1F;color:#F1F4EC}
+.art{flex:0 1 380px;display:flex;justify-content:center}
+.art svg{width:380px;max-width:100%;height:auto}
+.footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:13px;color:#4A5E4F;border-top:1px solid #D3DCC8;padding-top:20px}
+
+/* Mobile: tutto in una schermata, senza scroll; descrizione compatta sotto il titolo */
+@media (max-width:640px){
+  .page{height:100vh;height:100svh;min-height:0;padding:24px 24px 20px;gap:16px}
+  .logo{font-size:18px}
+  .tag{font-size:13px}
+  .header-right{gap:10px}
+  .main{flex:1;min-height:0;flex-direction:column;flex-wrap:nowrap;justify-content:flex-start;align-items:center;text-align:center;gap:2svh;padding:0}
+  .text{display:contents}
+  .lead{max-width:330px;font-size:clamp(14px,2svh,16px);line-height:1.45;text-wrap:pretty}
+  .art{order:-1;flex:0 0 auto;margin-top:auto}
+  .art svg{width:min(240px,26svh)}
+  h1{font-size:clamp(32px,5svh,44px)}
+  .cta{align-self:stretch;justify-content:center;min-height:52px;margin-top:auto}
+  .footer{flex-direction:column;align-items:center;text-align:center;gap:4px;font-size:12px;line-height:1.4;padding-top:14px}
+}
+
+/* Animazione del germoglio: ciclo di 9 secondi */
+.sprout *{animation-duration:9s;animation-iteration-count:infinite;animation-fill-mode:both;animation-timing-function:ease-in-out}
+.root,.stem{stroke-dasharray:100;stroke-dashoffset:0}
+.root{animation-name:root}
+.stem{animation-name:stem}
+.leaf-l{transform-box:fill-box;transform-origin:100% 100%;animation-name:leafL}
+.leaf-r{transform-box:fill-box;transform-origin:0% 100%;animation-name:leafR}
+.sway{transform-box:view-box;transform-origin:100px 130px;animation-name:sway}
+.plant{animation-name:fade}
+.crumb-l{animation-name:crumbL}
+.crumb-r{animation-name:crumbR}
+@keyframes root{0%,5%{stroke-dashoffset:100}20%,100%{stroke-dashoffset:0}}
+@keyframes stem{0%,15%{stroke-dashoffset:100}45%,100%{stroke-dashoffset:0}}
+@keyframes leafL{0%,42%{transform:scale(0)}56%,100%{transform:scale(1)}}
+@keyframes leafR{0%,46%{transform:scale(0)}60%,100%{transform:scale(1)}}
+@keyframes sway{0%,60%{transform:rotate(0deg)}70%{transform:rotate(2.5deg)}79%{transform:rotate(-2deg)}87%,100%{transform:rotate(0deg)}}
+@keyframes fade{0%,88%{opacity:1}95%,100%{opacity:0}}
+@keyframes crumbL{0%,24%{transform:translate(0,0);opacity:0}26%{opacity:1}36%,100%{transform:translate(-12px,-9px);opacity:0}}
+@keyframes crumbR{0%,24%{transform:translate(0,0);opacity:0}26%{opacity:1}36%,100%{transform:translate(12px,-8px);opacity:0}}
+@media (prefers-reduced-motion: reduce){.sprout *{animation:none}.crumb-l,.crumb-r{opacity:0}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="header">
+    <div class="logo">CryoAgriNet</div>
+    <div class="header-right">
+      <div class="tag">Coming soon</div>
+      <div class="lang" role="group" aria-label="Lingua / Language">
+        <button type="button" data-lang="it" aria-pressed="true" title="Italiano">IT</button>
+        <span class="sep" aria-hidden="true">|</span>
+        <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="text">
+      <h1 data-i18n="h1">Stiamo germogliando.</h1>
+      <p class="lead" data-i18n="lead">Una rete di aziende agricole tra Puglia, Marche e Sicilia. Coltiviamo e trasformiamo tutto in casa, con metodo biologico. Il nostro sito sta crescendo: torna a trovarci presto.</p>
+      <a class="cta" href="mailto:info@cryoagrinet.it" data-i18n="cta">Scrivici · info@cryoagrinet.it</a>
+    </div>
+
+    <div class="art">
+      <svg class="sprout" viewBox="0 0 200 200" aria-hidden="true">
+        <defs><clipPath id="disc"><circle cx="100" cy="100" r="92"/></clipPath></defs>
+        <circle cx="100" cy="100" r="92" fill="#E2EAD6"/>
+        <g clip-path="url(#disc)">
+          <rect x="0" y="130" width="200" height="70" fill="#8A6E4B"/>
+          <rect x="0" y="128" width="200" height="4" rx="2" fill="#6F5639"/>
+          <circle cx="62" cy="148" r="1.6" fill="#755B3D"/>
+          <circle cx="140" cy="142" r="2" fill="#755B3D"/>
+          <circle cx="78" cy="170" r="1.4" fill="#755B3D"/>
+          <circle cx="128" cy="174" r="1.8" fill="#755B3D"/>
+          <circle cx="150" cy="160" r="1.2" fill="#755B3D"/>
+          <circle cx="50" cy="164" r="1.8" fill="#755B3D"/>
+        </g>
+        <g class="plant">
+          <path class="root" pathLength="100" d="M100 153 C98 162 103 170 99 184" fill="none" stroke="#E9DCC0" stroke-width="2" stroke-linecap="round"/>
+          <g class="sway">
+            <path class="stem" pathLength="100" d="M100 150 C100 130 97 110 100 90" fill="none" stroke="#4F7A2E" stroke-width="4" stroke-linecap="round"/>
+            <path class="leaf-l" d="M99 94 C80 98 60 86 54 64 C76 60 96 74 99 94 Z" fill="#6E9B3F"/>
+            <path class="leaf-r" d="M101 89 C110 72 130 60 154 64 C150 88 126 98 101 89 Z" fill="#8DB85A"/>
+          </g>
+          <circle class="crumb-l" cx="95" cy="128" r="2.2" fill="#6F5639"/>
+          <circle class="crumb-r" cx="105" cy="128" r="1.8" fill="#6F5639"/>
+        </g>
+        <ellipse cx="100" cy="151" rx="7" ry="4.6" fill="#C9A86A" transform="rotate(-15 100 151)"/>
+      </svg>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 Cryoagrinet Società Agricola S.R.L. · P.IVA 04617550712</span>
+    <span data-i18n="tagline">Agricoltura biologica · 100% Italia</span>
+  </footer>
+</div>
+<script>
+/* Bilingue: italiano per chi ha il browser in italiano, inglese per tutti gli altri.
+   La scelta dal selettore non viene salvata (nessun cookie o storage). */
+(function () {
+  var en = {
+    title: 'CryoAgriNet – We’re sprouting',
+    description: 'CryoAgriNet: a network of Italian farms across Puglia, Marche and Sicily. Our website is growing: come back soon.',
+    h1: 'We’re sprouting.',
+    lead: 'A network of farms across Puglia, Marche and Sicily. We grow and process everything in-house, using organic methods. Our website is growing: come back soon.',
+    cta: 'Write to us · info@cryoagrinet.it',
+    tagline: 'Organic farming · 100% Italy'
+  };
+  var els = document.querySelectorAll('[data-i18n]');
+  var meta = document.querySelector('meta[name="description"]');
+  var buttons = document.querySelectorAll('.lang button');
+  // Il testo italiano è quello già presente nell'HTML
+  var it = { title: document.title, description: meta.content };
+  els.forEach(function (el) { it[el.getAttribute('data-i18n')] = el.textContent; });
+
+  function setLang(lang) {
+    var d = lang === 'it' ? it : en;
+    els.forEach(function (el) { el.textContent = d[el.getAttribute('data-i18n')]; });
+    document.title = d.title;
+    meta.content = d.description;
+    document.documentElement.lang = lang;
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)); });
+  }
+
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); });
+  });
+
+  var browserLang = (navigator.language || '').toLowerCase();
+  setLang(browserLang.indexOf('it') === 0 ? 'it' : 'en');
+})();
+</script>
+</body>
+</html>
