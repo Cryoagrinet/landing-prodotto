@@ -17,29 +17,34 @@ a{color:#2F5A1F}a:hover{color:#1F3A28}
 .header{display:flex;justify-content:space-between;align-items:center;gap:16px}
 .logo{font-size:20px;font-weight:600;letter-spacing:.02em}
 .tag{font-size:14px;color:#4A5E4F}
+.header-right{display:flex;align-items:center;gap:16px}
+.lang{display:flex;align-items:center;font-size:13px;color:#8A9A8C}
+.lang button{font:inherit;color:#4A5E4F;background:none;border:0;padding:6px 4px;cursor:pointer;letter-spacing:.04em}
+.lang button:hover{color:#1F3A28}
+.lang button[aria-pressed="true"]{color:#1F3A28;font-weight:600}
+.lang button:focus-visible{outline:2px solid #2F5A1F;outline-offset:2px;border-radius:4px}
 .main{flex:1;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(32px,6vw,96px);padding:48px 0}
 .text{flex:1 1 420px;max-width:560px;display:flex;flex-direction:column;gap:24px}
 h1{margin:0;font-size:clamp(44px,7vw,84px);font-weight:500;line-height:1.02;letter-spacing:-.02em}
 .lead{margin:0;font-size:clamp(17px,1.6vw,20px);line-height:1.55;color:#33493A;font-weight:300}
-.en{margin:0;font-size:15px;line-height:1.5;color:#4A5E4F}
 .cta{align-self:flex-start;display:inline-flex;align-items:center;min-height:48px;padding:0 24px;border-radius:999px;background:#1F3A28;color:#F1F4EC;text-decoration:none;font-size:16px;font-weight:500}
 .cta:hover{background:#2F5A1F;color:#F1F4EC}
 .art{flex:0 1 380px;display:flex;justify-content:center}
 .art svg{width:380px;max-width:100%;height:auto}
 .footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:13px;color:#4A5E4F;border-top:1px solid #D3DCC8;padding-top:20px}
 
-/* Mobile: tutto in una schermata, senza scroll; la descrizione viene nascosta */
+/* Mobile: tutto in una schermata, senza scroll; descrizione compatta sotto il titolo */
 @media (max-width:640px){
   .page{height:100vh;height:100svh;min-height:0;padding:24px 24px 20px;gap:16px}
   .logo{font-size:18px}
   .tag{font-size:13px}
-  .main{flex:1;min-height:0;flex-direction:column;flex-wrap:nowrap;justify-content:flex-start;align-items:center;text-align:center;gap:2.2svh;padding:0}
+  .header-right{gap:10px}
+  .main{flex:1;min-height:0;flex-direction:column;flex-wrap:nowrap;justify-content:flex-start;align-items:center;text-align:center;gap:2svh;padding:0}
   .text{display:contents}
-  .lead{display:none}
+  .lead{max-width:330px;font-size:clamp(14px,2svh,16px);line-height:1.45;text-wrap:pretty}
   .art{order:-1;flex:0 0 auto;margin-top:auto}
-  .art svg{width:min(260px,31svh)}
-  h1{font-size:clamp(34px,5.5svh,46px)}
-  .en{max-width:300px}
+  .art svg{width:min(240px,26svh)}
+  h1{font-size:clamp(32px,5svh,44px)}
   .cta{align-self:stretch;justify-content:center;min-height:52px;margin-top:auto}
   .footer{flex-direction:column;align-items:center;text-align:center;gap:4px;font-size:12px;line-height:1.4;padding-top:14px}
 }
@@ -70,15 +75,21 @@ h1{margin:0;font-size:clamp(44px,7vw,84px);font-weight:500;line-height:1.02;lett
 <div class="page">
   <header class="header">
     <div class="logo">CryoAgriNet</div>
-    <div class="tag">Coming soon</div>
+    <div class="header-right">
+      <div class="tag">Coming soon</div>
+      <div class="lang" role="group" aria-label="Lingua / Language">
+        <button type="button" data-lang="it" aria-pressed="true" title="Italiano">IT</button>
+        <span class="sep" aria-hidden="true">|</span>
+        <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
+      </div>
+    </div>
   </header>
 
   <main class="main">
     <div class="text">
-      <h1>Stiamo germogliando.</h1>
-      <p class="lead">Una rete di aziende agricole tra Puglia, Marche e Sicilia. Coltiviamo e trasformiamo tutto in casa, con metodo biologico. Il nostro sito sta crescendo: torna a trovarci presto.</p>
-      <p class="en" lang="en">We’re sprouting. Our new website is growing — come back soon.</p>
-      <a class="cta" href="mailto:info@cryoagrinet.it">Scrivici · info@cryoagrinet.it</a>
+      <h1 data-i18n="h1">Stiamo germogliando.</h1>
+      <p class="lead" data-i18n="lead">Una rete di aziende agricole tra Puglia, Marche e Sicilia. Coltiviamo e trasformiamo tutto in casa, con metodo biologico. Il nostro sito sta crescendo: torna a trovarci presto.</p>
+      <a class="cta" href="mailto:info@cryoagrinet.it" data-i18n="cta">Scrivici · info@cryoagrinet.it</a>
     </div>
 
     <div class="art">
@@ -112,8 +123,44 @@ h1{margin:0;font-size:clamp(44px,7vw,84px);font-weight:500;line-height:1.02;lett
 
   <footer class="footer">
     <span>© 2026 [RAGIONE SOCIALE] · P.IVA [P.IVA] · [SEDE LEGALE]</span>
-    <span>Agricoltura biologica · 100% Italia</span>
+    <span data-i18n="tagline">Agricoltura biologica · 100% Italia</span>
   </footer>
 </div>
+<script>
+/* Bilingue: italiano per chi ha il browser in italiano, inglese per tutti gli altri.
+   La scelta dal selettore non viene salvata (nessun cookie o storage). */
+(function () {
+  var en = {
+    title: 'CryoAgriNet – We’re sprouting',
+    description: 'CryoAgriNet: a network of Italian farms across Puglia, Marche and Sicily. Our website is growing: come back soon.',
+    h1: 'We’re sprouting.',
+    lead: 'A network of farms across Puglia, Marche and Sicily. We grow and process everything in-house, using organic methods. Our website is growing: come back soon.',
+    cta: 'Write to us · info@cryoagrinet.it',
+    tagline: 'Organic farming · 100% Italy'
+  };
+  var els = document.querySelectorAll('[data-i18n]');
+  var meta = document.querySelector('meta[name="description"]');
+  var buttons = document.querySelectorAll('.lang button');
+  // Il testo italiano è quello già presente nell'HTML
+  var it = { title: document.title, description: meta.content };
+  els.forEach(function (el) { it[el.getAttribute('data-i18n')] = el.textContent; });
+
+  function setLang(lang) {
+    var d = lang === 'it' ? it : en;
+    els.forEach(function (el) { el.textContent = d[el.getAttribute('data-i18n')]; });
+    document.title = d.title;
+    meta.content = d.description;
+    document.documentElement.lang = lang;
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)); });
+  }
+
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); });
+  });
+
+  var browserLang = (navigator.language || '').toLowerCase();
+  setLang(browserLang.indexOf('it') === 0 ? 'it' : 'en');
+})();
+</script>
 </body>
 </html>
