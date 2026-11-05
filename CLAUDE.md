@@ -5,6 +5,9 @@
 - Ogni modifica va su un branch `feat/...` o `fix/...` con una Pull Request verso `main`.
 - Il merge lo decide solo l'utente, dopo aver controllato il Preview deployment di Vercel. Non fare mai merge, né attivare auto-merge.
 - Mai force push.
+- Ogni modifica parte da un nuovo branch con nome descrittivo (es. modifica-hero).
+- Prima di proporre una Pull Request, avvia l'anteprima locale e verifica desktop e mobile.
+- Spiega in italiano semplice cosa stai facendo nelle operazioni Git
 
 ## Tecnologia
 - Sito statico: `index.html` alla radice, CSS inline, nessun framework, nessuna build, nessun `vercel.json` se non serve.
