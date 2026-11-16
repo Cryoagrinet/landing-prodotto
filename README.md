@@ -8,15 +8,9 @@ Apri `index.html` con un doppio clic nel browser.
 
 ## Flusso di lavoro
 
-`main` = **produzione**: tutto ciò che arriva su `main` viene pubblicato da Vercel.
+`modifica` → PR verso **`staging`** (anteprima stabile) → PR **`staging` → `main`** (**produzione**).
 
-1. Ogni modifica si fa su un branch (`feat/...` per novità, `fix/...` per correzioni).
-2. Si apre una Pull Request verso `main`.
-3. Vercel crea un **Preview deployment** (URL di staging non pubblico, protetto dal login Vercel).
-4. Si controlla la Preview su desktop e mobile.
-5. Solo dopo l'approvazione si fa il merge su `main` → pubblicazione in produzione.
-
-Mai commit o push diretti su `main`.
+Mai commit o push diretti su `main` o su `staging`. Passaggi completi e operazioni manuali in **[GUIDA-DEPLOY.md](GUIDA-DEPLOY.md)**.
 
 ## Deploy su Vercel
 
