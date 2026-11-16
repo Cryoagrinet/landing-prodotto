@@ -3,8 +3,54 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CryoAgriNet – Stiamo germogliando</title>
-<meta name="description" content="CryoAgriNet: una rete di aziende agricole italiane tra Puglia, Marche e Sicilia. Il nostro sito sta crescendo: torna a trovarci presto.">
+<title>CryoAgriNet – Agricoltura bio tra Puglia, Marche e Sicilia</title>
+<meta name="description" content="Rete di aziende agricole biologiche tra Puglia, Marche e Sicilia: coltiviamo e trasformiamo tutto in casa. Il nuovo sito è in arrivo.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.cryoagrinet.it/">
+<meta name="theme-color" content="#F1F4EC">
+
+<!-- Anteprima nei social e nelle chat (WhatsApp, LinkedIn, Facebook, X) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CryoAgriNet">
+<meta property="og:url" content="https://www.cryoagrinet.it/">
+<meta property="og:title" content="CryoAgriNet – Agricoltura bio tra Puglia, Marche e Sicilia">
+<meta property="og:description" content="Rete di aziende agricole biologiche tra Puglia, Marche e Sicilia: coltiviamo e trasformiamo tutto in casa. Il nuovo sito è in arrivo.">
+<meta property="og:image" content="https://www.cryoagrinet.it/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="CryoAgriNet – Stiamo germogliando">
+<meta property="og:locale" content="it_IT">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Dati strutturati per Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.cryoagrinet.it/#organization",
+      "name": "CryoAgriNet",
+      "legalName": "Cryoagrinet Società Agricola S.R.L.",
+      "vatID": "IT04617550712",
+      "url": "https://www.cryoagrinet.it/",
+      "logo": "https://www.cryoagrinet.it/apple-touch-icon.png",
+      "email": "info@cryoagrinet.it",
+      "description": "Rete di aziende agricole biologiche tra Puglia, Marche e Sicilia.",
+      "areaServed": "IT"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.cryoagrinet.it/#website",
+      "name": "CryoAgriNet",
+      "url": "https://www.cryoagrinet.it/",
+      "inLanguage": "it-IT",
+      "publisher": { "@id": "https://www.cryoagrinet.it/#organization" }
+    }
+  ]
+}
+</script>
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -134,8 +180,8 @@ h1{margin:0;font-size:clamp(44px,7vw,84px);font-weight:500;line-height:1.02;lett
    La scelta dal selettore non viene salvata (nessun cookie o storage). */
 (function () {
   var en = {
-    title: 'CryoAgriNet – We’re sprouting',
-    description: 'CryoAgriNet: a network of Italian farms across Puglia, Marche and Sicily. Our website is growing: come back soon.',
+    title: 'CryoAgriNet – Organic farming in Puglia, Marche and Sicily',
+    description: 'A network of organic farms across Puglia, Marche and Sicily: we grow and process everything in-house. Our new website is coming soon.',
     h1: 'We’re sprouting.',
     lead: 'A network of farms across Puglia, Marche and Sicily. We grow and process everything in-house, using organic methods. Our website is growing: come back soon.',
     cta: 'Write to us · info@cryoagrinet.it',
@@ -161,8 +207,11 @@ h1{margin:0;font-size:clamp(44px,7vw,84px);font-weight:500;line-height:1.02;lett
     b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); });
   });
 
+  // I motori di ricerca leggono la pagina con un browser in inglese:
+  // per loro resta l'italiano, la lingua principale del sito.
+  var isBot = /bot|crawl|spider|slurp|google|lighthouse/i.test(navigator.userAgent);
   var browserLang = (navigator.language || '').toLowerCase();
-  setLang(browserLang.indexOf('it') === 0 ? 'it' : 'en');
+  if (!isBot) setLang(browserLang.indexOf('it') === 0 ? 'it' : 'en');
 })();
 </script>
 </body>
