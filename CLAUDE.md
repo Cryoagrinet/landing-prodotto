@@ -15,5 +15,9 @@
 - Unica dipendenza esterna: Google Fonts (Outfit).
 
 ## Contenuti
-- Sito bilingue: italiano per browser in italiano, inglese per gli altri; selettore IT | EN senza salvataggio della scelta. I testi inglesi sono nello script in fondo a `index.html`.
+- Sito bilingue: italiano per browser in italiano, inglese per gli altri; selettore IT | EN senza salvataggio della scelta. I testi inglesi sono nello script in fondo a `index.html`. Per i motori di ricerca lo script non cambia lingua: vedono sempre l'italiano.
 - Il footer riporta ragione sociale e P.IVA: Cryoagrinet Società Agricola S.R.L. · P.IVA 04617550712.
+- SEO: titolo "CryoAgriNet", canonical su `https://www.cryoagrinet.it/`, Open Graph con `og-image.png`, dati strutturati, `robots.txt` e `sitemap.xml` (aggiornare `lastmod` quando cambia la pagina).
+
+## Requisiti per il sito completo (da non dimenticare)
+- **Un indirizzo per lingua**: `www.cryoagrinet.it/` in italiano e `www.cryoagrinet.it/en/` in inglese, con i tag `hreflang` (`it`, `en`, `x-default`) in entrambe le pagine e il selettore IT | EN come link tra le due. Oggi la lingua cambia solo via JavaScript su un unico indirizzo: Google conosce solo l'italiano e non può proporre la versione inglese agli utenti esteri. Va bene per il coming soon, non per il sito vero.
